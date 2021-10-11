@@ -11,7 +11,7 @@ function newBall() {
 		ball.speed = 7;
 		
 		// Set ball direction between 30 and 150 degrees
-		ball.direction = ((1/6)*Math.PI)+( ((Math.random()+1)/3)*Math.PI); 
+		ball.direction = ((1/6)*Math.PI)+(((Math.random()*2)/3)*Math.PI); 
 		ball.dx = Math.cos(ball.direction) * ball.speed;
 		ball.dy = Math.sin(ball.direction) * ball.speed;
 	};
