@@ -1,70 +1,15 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<title>Wallball</title>
-	<meta charset="UTF-8">
-	<meta name="description" content="Wallball: PixiJS minigame">
-	<meta name="keywords" content="Wallball, Minigame, Game, PixiJS, Javascript">
-	<meta name="author" content="0-o#9646">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-	
-	<script src="https://pixijs.download/release/pixi.js"></script>
-	<script src="data.js"></script>
-	<script src="stage.js"></script>
-	<script src="paddle.js"></script>
-	<script src="ball.js"></script>
-	<script src="collision.js"></script>
-</head>
-
 <body>
-	<script>
-		// Initialize PIXIJS
-		let screenWidth = 640, screenHeight = 360;
-		let app = new PIXI.Application({width: screenWidth, height: screenHeight});
-		document.body.appendChild(app.view);
 
-		// Construct game objects
-		let text = new PIXI.Text("",{fontFamily : 'Bangers', fontSize: 24, fill : 0xffffff, align : 'center'});
-		let paddle = newPaddle();
-		let ball = newBall();
-		
-		app.stage.addChild(paddle);
-		app.stage.addChild(ball);
-		app.stage.addChild(text);
-		
-		let trigger = (event) => {
-			window.removeEventListener("keydown", trigger);
-			game();
-		};
-		
-		let bounds = stage_bounds(screenWidth, screenHeight);
-		
-		let game = () => {
-			// Input listener
-			var keyboard = [];
-			window.addEventListener("keydown", event => keyboard[event.key] = true, false);
-			window.addEventListener("keyup", event => keyboard[event.key] = false, false);
-			
-			// Main game loop
-			app.ticker.add((delta) => {
-				if(keyboard['ArrowRight'])
-					paddle.moveRight(bounds['paddle']);
-					
-				if(keyboard['ArrowLeft'])
-					paddle.moveLeft(bounds['paddle']);
-					
-				ball.move(bounds['ball'], paddle, bounds['goal']);
-			});
-		};
-
-		updateScore();
-		window.addEventListener("keydown", trigger, false); // Only starts game when user touches the keyboard
-	</script>
 </body>
+
+<script type="module">
+import * as Wallball from './wallball.js';
+
+Wallball.setup();
+</script>
+
 
 </html>

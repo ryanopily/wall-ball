@@ -2,7 +2,8 @@
 ## Setup
 You'll need to host the project on a webserver. You can use 000webhost.com to get access to a free one (with limitations). 
   
-If you want to host it locally, I recommend Apache Web Server for Mac/Linux and IIS for Windows. 
+If you want to host it locally, I recommend Apache Web Server for Mac/Linux and IIS for Windows.  
+You can also install http-server with npm.
   
 ## Libraries
 https://pixijs.com/

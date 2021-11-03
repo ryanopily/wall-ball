@@ -1,15 +1,7 @@
-let points = 0;
+let width = 640, height = 360;
 
-if(!('best' in window.localStorage)) 
-		window.localStorage['best'] = 0;
+let bounds = {}
+bounds.goal  = {'x': 0, 'y': -100, 'width': width, 'height': 100};
+bounds.arena = {'x': 0, 'y': 0, 'width': width, 'height': height};
 
-function updateScore() {
-	text.text = 'Score: ' + points + '\n Best: ' + window.localStorage['best'] + ' ';
-}
-
-function addPoint() {
-	if(++points > window.localStorage['best']) 
-		window.localStorage['best'] = points;
-	
-	updateScore();
-}
+export {width, height, bounds};
