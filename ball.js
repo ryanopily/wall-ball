@@ -1,6 +1,6 @@
 import {width as screenWidth, height as screenHeight, bounds} from './data.js';
 import {aabb, partial_collision} from './collision.js';
-import * as PIXI from './pixi.min.mjs';
+import {Graphics} from './pixi.min.mjs';
 
 class BallEvents {
 	
@@ -17,7 +17,7 @@ class BallEvents {
 	}
 }
 
-class Ball extends PIXI.Graphics {
+class Ball extends Graphics {
 	
 	constructor(paddle) {
 		super();
@@ -135,8 +135,6 @@ class Ball extends PIXI.Graphics {
 				for(let field in params)
 					this[field] = params[field];
 			}	
-			
-			return;
 		}
 		
 		let params = {};

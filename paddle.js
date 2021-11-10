@@ -1,9 +1,8 @@
 import {width as screenWidth, bounds} from './data.js';
 import {partial_collision} from './collision.js';
-import * as PIXI from './pixi.min.mjs';
+import {Graphics} from './pixi.min.mjs';
 
 class PaddleEvents {
-
 	onMove = [];
 	onBoundsCollide = [];
 	
@@ -14,7 +13,7 @@ class PaddleEvents {
 	}
 }
 
-class Paddle extends PIXI.Graphics {
+class Paddle extends Graphics {
 	
 	constructor() {
 		super();
@@ -37,7 +36,6 @@ class Paddle extends PIXI.Graphics {
 		if(collide['collision']) {
 			
 			let params = {};
-			
 			params.x = this.obstacle.x;
 
 			if(this.dx > 0) 
